@@ -15,7 +15,11 @@ run: clean build
 	
 
 build: $(SRCS)
-	gcc -o $(NAME) $^ $(CFLAGS) $(LDLIBS)	
+	$(CC) -o $(NAME) $^ $(CFLAGS) $(LDLIBS)	
+
+debug: $(SRCS)
+	$(CC) -o $(NAME) $^ $(CFLAGS) -g $(LDLIBS)
+
 test:
 	$(CC) $(LDFLAGS) -o $(NAME) $(wildcard *.o) $(LDLIBS)
 

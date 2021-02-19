@@ -102,7 +102,6 @@ void init_xine()
 void create_window()
 {
 
-    XLockDisplay(in.xlib.dpy);
     if (XineramaIsActive(in.xlib.dpy))
     {
         if (in.xlib.screen > -1)
@@ -150,7 +149,6 @@ void create_window()
     XMapWindow(in.xlib.dpy, in.xlib.window);
     XLowerWindow(in.xlib.dpy, in.xlib.window);
     XFlush(in.xlib.dpy);
-    XUnlockDisplay(in.xlib.dpy);
 }
 
 void get_atoms()
