@@ -175,6 +175,31 @@ int next_track()
     }
 }
 
+int prev_track(){
+    if (in.player.shuffle)
+    {
+        return rand() % tracks();
+    }
+    else
+    {
+        return in.player.index - 1;
+    }
+}
+
+void prev(){
+    int track = prev_track();
+    if (track < 0)track = tracks()-1;
+    in.player.index = track;
+    play();
+}
+
+void next(){
+    int track = next_track();
+    if (track == tracks())track = 0;
+    in.player.index = track;
+    play();
+}
+
 char *get_track(int index)
 {
     return (char *)arraylist_get(in.player.videos, index);
@@ -258,9 +283,13 @@ void event_loop()
         {
             switch (event.xbutton.button)
             {
-            case Button1:
-                play_pause();
+            case Button1:{
+                double x_rat = event.xbutton.x * 100.0 / in.xlib.width;
+                if (x_rat < 17)prev();
+                else if (x_rat > 83)next();
+                else play_pause();
                 break;
+            }
             case Button3:
                 finish();
                 exit(0);
