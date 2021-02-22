@@ -11,7 +11,7 @@ NAME=xviroot
 
 all: build
 run: clean build
-	./$(NAME) "/usr/share/Komorebi/yasuo/yasuo.mp4" "/usr/share/Komorebi/kobelbass/kobelbass.mp4" loop -v 20 screen 1
+	./$(NAME) "/usr/share/Komorebi/yasuo/yasuo.mp4" "/usr/share/Komorebi/kobelbass/kobelbass.mp4" loop -v 20
 	
 
 build: $(SRCS)

@@ -11,7 +11,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <paths.h>
-#include <pthread.h>
 
 #include "arraylist.h"
 
@@ -57,6 +56,9 @@ void create_window();
 char * get_track(int index);
 int tracks();
 int next_track();
+int prev_track();
+void next();
+void prev();
 void play();
 void play_pause();
 void inc_volume();
